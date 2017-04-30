@@ -1,1 +1,17 @@
 <h1>{{vm.title}}</h1>
+<form>
+  <input type="text" placeholder="Value to filter" ng-model="vm.filterValue">
+</form>
+<ul class="people-list">
+  <li ng-repeat="person in vm.peoplePage | filter:vm.filterValue | limitTo:vm.itemsPage">
+    <figure>
+    <img ng-style="{ 'background-image': 'url(' + person.thumbnail + ')' }"class="picture" />
+    <figcaption>{{ person.name }}</figcaption>
+  </li>
+</ul>
+<button ng-click="vm.changePage($event, {{ vm.actualPage - 1 }})" ng-disabled="vm.actualPage === 1" >Previous</button>
+<ul class="page-list">
+  <!-- <li ng-repeat="" -->
+<button ng-click="vm.changePage($event, {{ vm.actualPage + 1 }})" ng-disabled="vm.actualPage === vm.totalPages" >Next</button>
+<ul class="page-list">
+</ul>
