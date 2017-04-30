@@ -3,8 +3,14 @@
   angular.module('brastlewark')
     .controller('PeopleController', PeopleController)
 
-  function PeopleController () {
-    var vm = this
+  function PeopleController (ApiFactory) {
+    let vm = this
+
     vm.title = 'People from Brastlewark'
+
+    ApiFactory.getPeople()
+      .then((response) => {
+        people = response
+      })
   }
 })()
