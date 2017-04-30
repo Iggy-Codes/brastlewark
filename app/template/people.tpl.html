@@ -1,6 +1,6 @@
 <h1>{{vm.title}}</h1>
 <form>
-  <input type="text" placeholder="Value to filter" ng-model="vm.filterValue">
+  <label>Filter by any field: <input type="text" placeholder="Value to filter" ng-model="vm.filterValue"></label>
 </form>
 <ul class="people-list">
   <li ng-repeat="person in vm.newData.peoplePage | filter:vm.filterValue">
@@ -20,7 +20,7 @@
     <button ng-click="vm.changePage($event, vm.newData.actualPage + 1)" ng-disabled="vm.newData.nextPage" >Next</button>
   </li>
 </ul>
-<div class="modal" ng-show="vm.viewDetails" ng-click="vm.hideModal($event)">
+<div class="modal" ng-show="vm.viewDetails">
   <h4><a href="#" ng-click="vm.hideModal($event)">X</a></h4>
   <h2>{{ vm.person.name}}</h2>
   <div class="modal-picture" ng-style="{ 'background-image': 'url(' + vm.person.thumbnail + ')' }">
