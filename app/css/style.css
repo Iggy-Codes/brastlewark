@@ -1,24 +1,63 @@
-main {
-  margin: 0 auto;
-  width: 90%;
+body {
+  font-family: 'Lato', sans-serif;
 }
 
-main .people-list {
-  background-color: blue;
+body main {
+  width: 90%;
+  margin: 0 auto;
+}
+
+body main h1 {
+  text-align: center;
+}
+
+body main ul {
   list-style-type: none;
   padding: 0px;
   display: flex;
   flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-around;
 }
 
-main .people-list figure {
-  margin: 5px;
+body main .people-list {
+  text-align: center;
 }
 
-main .people-list figure .picture {
+body main .people-list .picture {
   height: 200px;
   width: 200px;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: contain;
+  border: 2px solid red;
+  margin: 5px;
+  background-size: cover;
+}
+
+body main .link-list {
+  margin: 0 auto;
+  width: 80%;
+}
+
+.modal-content {
+  width: 400px;
+  padding: 10px 20px;
+  margin: 20% auto;
+  position: relative;
+}
+
+.modal {
+  background-color: rgba(0, 0, 0, 0.8);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 1s;
+}
+
+#myModal:target {
+  opacity: 1;
+  pointer-events: auto;
 }

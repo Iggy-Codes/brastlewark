@@ -3,15 +3,29 @@
   <input type="text" placeholder="Value to filter" ng-model="vm.filterValue">
 </form>
 <ul class="people-list">
-  <li ng-repeat="person in vm.peoplePage | filter:vm.filterValue | limitTo:vm.itemsPage">
-    <figure>
-    <img ng-style="{ 'background-image': 'url(' + person.thumbnail + ')' }"class="picture" />
-    <figcaption>{{ person.name }}</figcaption>
+  <li ng-repeat="person in vm.newData.peoplePage | filter:vm.filterValue">
+    <div ng-style="{ 'background-image': 'url(' + person.thumbnail + ')' }"class="picture" ng-click="vm.detailsById($event, person.person.id)"></div>
+    <p><a href="#myModal" ng-click="vm.detailsById($event, person.id)">{{ person.name }}</a></p>
   </li>
 </ul>
-<button ng-click="vm.changePage($event, {{ vm.actualPage - 1 }})" ng-disabled="vm.actualPage === 1" >Previous</button>
-<ul class="page-list">
-  <!-- <li ng-repeat="" -->
-<button ng-click="vm.changePage($event, {{ vm.actualPage + 1 }})" ng-disabled="vm.actualPage === vm.totalPages" >Next</button>
-<ul class="page-list">
+<ul class="link-list">
+  <li>
+    <button ng-click="vm.changePage($event, vm.newData.actualPage - 1)" ng-disabled="vm.newData.previousPage" >Previous</button>
+  </li>
+  <li ng-repeat="link in vm.newData.arrayPage">
+    <a href="" ng-click="vm.changePage($event, link[0])" ng-show="link[1]"> {{ link[0] }} </a>
+    <span ng-show="!link[1]">{{ link[0] }} </span>
+  </li>
+  <li>
+    <button ng-click="vm.changePage($event, vm.newData.actualPage + 1)" ng-disabled="vm.newData.nextPage" >Next</button>
+  </li>
 </ul>
+<div id="myModal" class="modal" ng-show="vm.viewDetails">
+  <div class="modal-content">
+    <a href="#">X</a>
+    <h2>{{ vm.person.name}}</h2>
+    <ul>
+      <li>Age: {{vm.person.age }} </li>
+    </ul>
+  </div>  
+</div>
