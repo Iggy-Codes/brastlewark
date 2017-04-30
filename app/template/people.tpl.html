@@ -4,7 +4,7 @@
 </form>
 <ul class="people-list">
   <li ng-repeat="person in vm.newData.peoplePage | filter:vm.filterValue">
-    <div ng-style="{ 'background-image': 'url(' + person.thumbnail + ')' }"class="picture" ng-click="vm.detailsById($event, person.person.id)"></div>
+    <div ng-style="{ 'background-image': 'url(' + person.thumbnail + ')' }"class="picture" ng-click="vm.detailsById($event, person.id)"></div>
     <p><a href="#myModal" ng-click="vm.detailsById($event, person.id)">{{ person.name }}</a></p>
   </li>
 </ul>
@@ -20,12 +20,27 @@
     <button ng-click="vm.changePage($event, vm.newData.actualPage + 1)" ng-disabled="vm.newData.nextPage" >Next</button>
   </li>
 </ul>
-<div id="myModal" class="modal" ng-show="vm.viewDetails">
-  <div class="modal-content">
-    <a href="#">X</a>
-    <h2>{{ vm.person.name}}</h2>
+<div class="modal" ng-show="vm.viewDetails" ng-click="vm.hideModal($event)">
+  <h4><a href="#" ng-click="vm.hideModal($event)">X</a></h4>
+  <h2>{{ vm.person.name}}</h2>
+  <div class="modal-picture" ng-style="{ 'background-image': 'url(' + vm.person.thumbnail + ')' }">
+  </div> 
+  <div class="modal-data">
     <ul>
-      <li>Age: {{vm.person.age }} </li>
+      <li>Age: {{vm.person.age }}</li>
+      <li>Height: {{ vm.person.height }}</li>
+      <li>Weight: {{ vm.person.weight }}</li>
+      <li>Hair color: {{ vm.person.hair_color }}</li>
+      <li>Professions:
+        <ul>
+          <li ng-repeat="profession in vm.person.professions"> {{ profession }}</li>
+        </ul>
+      </li>
+      <li>Friends:
+        <ul>
+          <li ng-repeat="friend in vm.person.friends"> {{ friend }}</li>
+        </ul>
+      </li>
     </ul>
-  </div>  
+  </div> 
 </div>

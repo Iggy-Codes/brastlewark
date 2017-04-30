@@ -1,5 +1,6 @@
 body {
   font-family: 'Lato', sans-serif;
+  font-size: 16px;
 }
 
 body main {
@@ -29,9 +30,8 @@ body main .people-list .picture {
   width: 200px;
   background-position: center;
   background-repeat: no-repeat;
-  border: 2px solid red;
-  margin: 5px;
   background-size: cover;
+  margin: 5px;
 }
 
 body main .link-list {
@@ -39,25 +39,53 @@ body main .link-list {
   width: 80%;
 }
 
-.modal-content {
-  width: 400px;
-  padding: 10px 20px;
-  margin: 20% auto;
-  position: relative;
+body main .modal {
+  background-color: rgba(0, 0, 0, 0.95);
+  border-radius: 16px;
+  padding: 15px 30px;
+  position: fixed;
+  width: 550px;
+  top: 15%;
+  right: calc( (100% - 600px) / 2);
+  color: white;
 }
 
-.modal {
-  background-color: rgba(0, 0, 0, 0.8);
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  opacity: 0;
-  pointer-events: none;
-  transition: all 1s;
+body main .modal a {
+  text-decoration: none;
+  color: white;
 }
 
-#myModal:target {
-  opacity: 1;
-  pointer-events: auto;
+body main .modal h2 {
+  text-align: center;
+  margin-top: 0px;
+}
+
+body main .modal h4 {
+  text-align: right;
+  margin: 0px;
+}
+
+body main .modal ul {
+  list-style-type: circle;
+  padding-left: 20px;
+  display: block;
+  margin: 0px;
+}
+
+body main .modal ul li {
+  line-height: 1.5rem;
+}
+
+body main .modal .modal-picture {
+  width: 300px;
+  height: 300px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  float: left;
+}
+
+body main .modal .modal-data {
+  float: left;
+  padding-left: 40px;
 }

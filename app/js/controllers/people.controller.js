@@ -28,6 +28,12 @@
       e.preventDefault()
       vm.person = vm.people.find((element) => element.id === personId)
       console.log(vm.person)
+      vm.viewDetails = true
+    }
+
+    vm.hideModal = (e) => {
+      e.preventDefault()
+      vm.viewDetails = false
     }
   }
 })()
