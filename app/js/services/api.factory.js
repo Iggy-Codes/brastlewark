@@ -10,8 +10,10 @@
         .then((response) => {
           let totalPages = parseInt(response.data.Brastlewark.length / cfg.itemsPage) + ((response.data.Brastlewark.length % cfg.itemsPage) ? 1 : 0)
           let people = response.data.Brastlewark
-          let success = true
-          return {totalPages, people, success}
+          if (people.length < 1 || !(people instanceof Array)) {
+            return { people: [], explanation: 'No habitant found' }
+          }
+          return {totalPages, people}
         })
         // List of images not repeated in order to cache
         // them at the start of the app
@@ -22,15 +24,14 @@
               imageToCache.push(element.thumbnail)
             }
           })
-          console.log(imageToCache)
           response.imgs = imageToCache
           return response
         })
         .catch((error) => {
-          console.log(error)
-          let success = false
-          let explanation = `Server respond with ${error.data}`
-          return {success, explanation}
+          return {
+            people: [],
+            explanation: `Server respond with ${error.data}`
+          }
         })
     }
 

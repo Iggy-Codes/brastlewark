@@ -1,0 +1,17 @@
+{
+  "name": "pasiona",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Iggy Codes (amargos.ignasi@gmail.com)",
+  "license": "MIT",
+  "devDependencies": {
+    "jasmine-core": "^2.6.1",
+    "karma": "^1.6.0",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-jasmine": "^1.1.0"
+  }
+}

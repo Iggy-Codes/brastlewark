@@ -16,6 +16,14 @@
   ],
   "dependencies": {
     "angular": "1.4",
-    "angular-route": "1.4"
+    "angular-route": "1.4",
+    "angular-mocks": "1.4"
+  },
+  "devDependencies": {
+    "karma": "^0.4.6",
+    "karma-jasmine": "^1.1.0",
+    "jasmine-core": "^2.6.1",
+    "karma-chrome-launcher": "^2.0.0",
+    "angular-mocks": "1.4"
   }
 }
