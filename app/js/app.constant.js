@@ -5,7 +5,7 @@
     .constant('cfg', {
       url: 'https://raw.githubusercontent.com/rrafols/mobile_test/master/data.json',
       itemsPage: 20,
-      linkPagesToShow: 10,
+      linkPagesToShow: 7,
       pageToShow: 1
     })
 })()
