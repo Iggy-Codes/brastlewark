@@ -13,8 +13,9 @@
           let success = true
           return {totalPages, people, success}
         })
+        // List of images not repeated in order to cache
+        // them at the start of the app
         .then((response) => {
-          console.log(response.people)
           let imageToCache = []
           response.people.forEach((element) => {
             if (!imageToCache.includes(element.thumbnail)) {
