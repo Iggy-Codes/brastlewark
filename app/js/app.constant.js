@@ -6,6 +6,6 @@
       url: 'https://raw.githubusercontent.com/rrafols/mobile_test/master/data.json',
       itemsPage: 20,
       linkPagesToShow: 10,
-      pageToShow: 67
+      pageToShow: 1
     })
 })()

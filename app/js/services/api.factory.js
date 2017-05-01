@@ -10,7 +10,26 @@
         .then((response) => {
           let totalPages = parseInt(response.data.Brastlewark.length / cfg.itemsPage) + ((response.data.Brastlewark.length % cfg.itemsPage) ? 1 : 0)
           let people = response.data.Brastlewark
-          return {totalPages, people}
+          let success = true
+          return {totalPages, people, success}
+        })
+        .then((response) => {
+          console.log(response.people)
+          let imageToCache = []
+          response.people.forEach((element) => {
+            if (!imageToCache.includes(element.thumbnail)) {
+              imageToCache.push(element.thumbnail)
+            }
+          })
+          console.log(imageToCache)
+          response.imgs = imageToCache
+          return response
+        })
+        .catch((error) => {
+          console.log(error)
+          let success = false
+          let explanation = `Server respond with ${error.data}`
+          return {success, explanation}
         })
     }
 
