@@ -39,7 +39,7 @@
       actualPage = (isNaN(actualPage) || actualPage < 1) ? 1 : parseInt(actualPage)
       actualPage = (actualPage > totalPages) ? totalPages : actualPage
       let peoplePage = people.slice((actualPage - 1) * cfg.itemsPage, actualPage * cfg.itemsPage)
-      let firstItem = parseInt(actualPage - cfg.linkPagesToShow / 2)
+      let firstItem = parseInt(actualPage - (cfg.linkPagesToShow - 1) / 2)
       if (firstItem < 1) firstItem = 1
       if (firstItem + cfg.linkPagesToShow + 1 > totalPages) firstItem = totalPages - cfg.linkPagesToShow + 1
       let arrayPage = []
