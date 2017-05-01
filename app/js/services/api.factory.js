@@ -27,6 +27,24 @@
           response.imgs = imageToCache
           return response
         })
+        // Assign gender. Gender assign randomly
+        // People with same photo share gender.
+        .then((response) => {
+          let arrayGender = new Array(response.imgs.length).fill(0).map((element) => Math.random()).map(element => {
+            if (element > 0.5) return 'Female'
+            return 'Male'
+          })
+          let people = response.people
+          console.log(people)
+          people = people.map((element) => {
+            console.log(element)
+            element['gender'] = arrayGender[response.imgs.indexOf(element.thumbnail)]
+            return element
+          })
+          console.log(people)
+          response.people = people
+          return response
+        })
         .catch((error) => {
           return {
             people: [],

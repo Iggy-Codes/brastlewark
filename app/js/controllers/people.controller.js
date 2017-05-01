@@ -15,6 +15,7 @@
       .then((response) => {
         vm.success = response.success
         vm.people = response.people
+        console.log(response.people)
         if (vm.people.length > 0) {
           vm.totalPages = response.totalPages
           vm.imgs = response.imgs
@@ -32,7 +33,6 @@
     vm.detailsById = (e, personId) => {
       e.preventDefault()
       vm.person = vm.people.find((element) => element.id === personId)
-      console.log(vm.person)
       vm.viewDetails = true
     }
 
