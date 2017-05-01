@@ -1,27 +1,35 @@
 <h1>{{vm.title}}</h1>
-<p ng-if="!vm.success"> {{ vm.explanation }} </p>
-<form ng-if="vm.success">
+<p ng-if="vm.people.length < 1"> {{ vm.explanation }} </p>
+<form ng-if="vm.people.length > 0">
   <label>Filter by any field: <input type="text" placeholder="Value to filter" ng-model="vm.filterValue"></label>
 </form>
-<ul class="people-list" ng-if="vm.success">
+<ul class="people-list" ng-if="vm.people.length > 0">
   <li ng-repeat="person in vm.newData.peoplePage | filter:vm.filterValue">
     <div ng-style="{ 'background-image': 'url(' + person.thumbnail + ')' }"class="picture" ng-click="vm.detailsById($event, person.id)"></div>
     <p><a href="#myModal" ng-click="vm.detailsById($event, person.id)">{{ person.name }}</a></p>
   </li>
 </ul>
-<ul class="link-list" ng-if="vm.success">
+<ul class="link-list" ng-if="vm.people.length > 0">
   <li>
-    <button ng-click="vm.changePage($event, vm.newData.actualPage - 1)" ng-disabled="vm.newData.previousPage" >Previous</button>
+    <button ng-click="vm.changePage($event, 1)" ng-disabled="vm.newData.previousPage" >First</button>
+  </li>
+  <li>
+    <button ng-click="vm.changePage($event, vm.newData.actualPage - 1)" ng-disabled="vm.newData.previousPage" >Prev</button>
   </li>
   <li ng-repeat="link in vm.newData.arrayPage">
-    <a href="" ng-click="vm.changePage($event, link[0])" ng-show="link[1]"> {{ link[0] }} </a>
-    <span ng-show="!link[1]">{{ link[0] }} </span>
+    <button ng-click="vm.changePage($event, link[0])" ng-show="link[1]"> {{ link[0] }} </button>
+    <button ng-show="!link[1]" ng-disabled="true" ng-style="{ 'background-color':' white', 'color':'teal', 'font-weight':'bold'}">{{ link[0] }} </button>
   </li>
   <li>
     <button ng-click="vm.changePage($event, vm.newData.actualPage + 1)" ng-disabled="vm.newData.nextPage" >Next</button>
   </li>
+  <li>
+    <button ng-click="vm.changePage($event, vm.totalPages)" ng-disabled="vm.newData.nextPage" >Last</button>
+  </li>
 </ul>
-<div class="modal" ng-show="vm.viewDetails" ng-if="vm.success">
+
+
+<div class="modal" ng-show="vm.viewDetails" ng-if="vm.people.length > 0">
   <h4><a href="#" ng-click="vm.hideModal($event)">X</a></h4>
   <h2>{{ vm.person.name}}</h2>
   <div class="modal-picture" ng-style="{ 'background-image': 'url(' + vm.person.thumbnail + ')' }">

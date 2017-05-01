@@ -13,14 +13,12 @@
 
     ApiFactory.getPeople()
       .then((response) => {
-        console.log(response)
         vm.success = response.success
-        if (response.success) {
+        vm.people = response.people
+        if (vm.people.length > 0) {
           vm.totalPages = response.totalPages
-          vm.people = response.people
           vm.imgs = response.imgs
           vm.newData = ApiFactory.dataPage(vm.people, cfg.pageToShow, vm.totalPages)
-          console.log(vm.newData.peoplePage)
         } else {
           vm.explanation = response.explanation
         }

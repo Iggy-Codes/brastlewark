@@ -21,6 +21,11 @@ body main ul {
   justify-content: space-around;
 }
 
+body main a {
+  text-decoration: none;
+  color: black;
+}
+
 body main .people-list {
   text-align: center;
 }
@@ -28,15 +33,34 @@ body main .people-list {
 body main .people-list .picture {
   height: 220px;
   width: 220px;
+  background-color: #66EAF3;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   margin: 5px;
+  border-radius: 15px;
+  box-shadow: 7px 7px 3px #888888;
+}
+
+body main .people-list .picture:hover {
+  box-shadow: 7px 7px 3px salmon;
+}
+
+body main .people-list a:hover {
+  color: tomato;
+  font-weight: bold;
 }
 
 body main .link-list {
-  margin: 0 auto;
-  width: 80%;
+  justify-content: center;
+  align-items: center;
+}
+
+body main .link-list button {
+  padding: .5rem;
+  box-shadow: none;
+  background-color: lightcyan;
+  border: 1px solid teal;
 }
 
 body main .modal {

@@ -7,7 +7,6 @@ body
     margin: 0 auto
     h1, form
       text-align: center
-    
     ul
       list-style-type: none
       padding: 0px
@@ -15,18 +14,35 @@ body
       flex-flow: row wrap
       align-items: center
       justify-content: space-around
+    a
+      text-decoration: none
+      color: black
     .people-list
       text-align: center
       .picture
         height: 220px
         width: 220px
+        background-color: #66EAF3
         background-position: center
         background-repeat: no-repeat
         background-size: cover
         margin: 5px
+        border-radius: 15px
+        box-shadow: 7px 7px 3px #888888
+      .picture:hover
+        box-shadow: 7px 7px 3px salmon 
+      a:hover
+        color: tomato
+        font-weight: bold
     .link-list
-      margin: 0 auto
-      width: 80%
+
+      justify-content: center
+      align-items: center
+      button
+        padding: .5rem
+        box-shadow: none
+        background-color: lightcyan
+        border: 1px solid teal
     .modal
       background-color: rgba(0,0,0,.95)
       border-radius: 16px
@@ -39,7 +55,6 @@ body
       a
         text-decoration: none
         color: white
-
       h2
         text-align: center
         margin-top: 0px
