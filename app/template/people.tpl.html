@@ -1,10 +1,15 @@
 <h1>{{vm.title}}</h1>
 <p ng-if="vm.people.length < 1"> {{ vm.explanation }} </p>
 <form ng-if="vm.people.length > 0">
-  <label>Filter by any field: <input type="text" placeholder="Value to filter" ng-model="vm.filterValue"></label>
-  Order population by: 
-  <label><input type="radio" ng-model="vm.orderBy" value="name" ng-click="vm.sortPeople()">Name</label>
-  <label><input type="radio" ng-model="vm.orderBy" value="age" ng-click="vm.sortPeople()">Age</label>
+  <ul class="list-form">
+    <li>
+      <label>Filter this page by any field: <input type="text" placeholder="Value to filter" ng-model="vm.filterValue"></label>
+    </li>
+    <li>Order population by: 
+      <label><input type="radio" ng-model="vm.orderBy" value="name" ng-click="vm.sortPeople()">Name</label>
+      <label><input type="radio" ng-model="vm.orderBy" value="age" ng-click="vm.sortPeople()">Age</label>
+    </li>
+  </ul>
 </form>
 <ul class="people-list" ng-if="vm.people.length > 0">
   <li ng-repeat="person in vm.newData.peoplePage | filter:vm.filterValue">
@@ -22,7 +27,7 @@
   </li>
   <li ng-repeat="link in vm.newData.arrayPage">
     <button ng-click="vm.changePage($event, link[0])" ng-show="link[1]"> {{ link[0] }} </button>
-    <button ng-show="!link[1]" ng-disabled="true" ng-style="{ 'background-color':' white', 'color':'teal', 'font-weight':'bold'}">{{ link[0] }} </button>
+    <button ng-show="!link[1]" ng-disabled="true" ng-style="{ 'background-color':' darkgrey', 'color':'white'}">{{ link[0] }} </button>
   </li>
   <li>
     <button ng-click="vm.changePage($event, vm.newData.actualPage + 1)" ng-disabled="vm.newData.nextPage" >Next</button>

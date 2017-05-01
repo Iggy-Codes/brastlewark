@@ -8,8 +8,12 @@ body main {
   margin: 0 auto;
 }
 
-body main h1, body main form {
+body main h1 {
   text-align: center;
+}
+
+body main label:first {
+  margin-right: 30px;
 }
 
 body main ul {
@@ -68,8 +72,8 @@ body main .link-list {
 body main .link-list button {
   padding: .5rem;
   box-shadow: none;
-  background-color: lightcyan;
-  border: 1px solid teal;
+  background-color: lightgrey;
+  border: 1px solid dimgrey;
 }
 
 body main .modal {
