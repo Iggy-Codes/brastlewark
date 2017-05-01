@@ -2,11 +2,15 @@
 <p ng-if="vm.people.length < 1"> {{ vm.explanation }} </p>
 <form ng-if="vm.people.length > 0">
   <label>Filter by any field: <input type="text" placeholder="Value to filter" ng-model="vm.filterValue"></label>
+  Order population by: 
+  <label><input type="radio" ng-model="vm.orderBy" value="name" ng-click="vm.sortPeople()">Name</label>
+  <label><input type="radio" ng-model="vm.orderBy" value="age" ng-click="vm.sortPeople()">Age</label>
 </form>
 <ul class="people-list" ng-if="vm.people.length > 0">
   <li ng-repeat="person in vm.newData.peoplePage | filter:vm.filterValue">
     <div ng-style="{ 'background-image': 'url(' + person.thumbnail + ')' }"class="picture" ng-click="vm.detailsById($event, person.id)"></div>
     <p><a href="#myModal" ng-click="vm.detailsById($event, person.id)">{{ person.name }}</a></p>
+    <p> Age: {{person.age}}</p>
   </li>
 </ul>
 <ul class="link-list" ng-if="vm.people.length > 0">

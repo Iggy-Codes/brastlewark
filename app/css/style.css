@@ -30,6 +30,15 @@ body main .people-list {
   text-align: center;
 }
 
+body main .people-list li {
+  margin-bottom: 5px;
+}
+
+body main .people-list p {
+  line-height: 1rem;
+  margin: 5px 0px;
+}
+
 body main .people-list .picture {
   height: 220px;
   width: 220px;
@@ -37,7 +46,7 @@ body main .people-list .picture {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  margin: 5px;
+  margin-bottom: 7px;
   border-radius: 15px;
   box-shadow: 7px 7px 3px #888888;
 }

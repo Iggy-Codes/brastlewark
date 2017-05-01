@@ -40,5 +40,18 @@
       e.preventDefault()
       vm.viewDetails = false
     }
+
+    vm.sortPeople = () => {
+      console.log(vm.orderBy)
+      if (vm.orderBy === 'age') vm.people.sort((a, b) => a.age - b.age)
+      if (vm.orderBy === 'name') {
+        vm.people.sort((a, b) => {
+          if (a.name < b.name) return -1
+          if (a.name > b.name) return 1
+          return 0
+        })
+      }
+      vm.newData = ApiFactory.dataPage(vm.people, cfg.pageToShow, vm.totalPages)
+    }
   }
 })()

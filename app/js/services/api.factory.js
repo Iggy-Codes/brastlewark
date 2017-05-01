@@ -58,6 +58,7 @@
         actualPage
       }
     }
+
     return {
       getPeople,
       dataPage
