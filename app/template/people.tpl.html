@@ -40,12 +40,12 @@
       <li>Height: {{ vm.person.height }}</li>
       <li>Weight: {{ vm.person.weight }}</li>
       <li>Hair color: {{ vm.person.hair_color }}</li>
-      <li>Professions:
+      <li ng-if="vm.person.professions.length > 0">Professions:
         <ul>
           <li ng-repeat="profession in vm.person.professions"> {{ profession }}</li>
         </ul>
       </li>
-      <li>Friends:
+      <li ng-if="vm.person.friends.length > 0">Friends:
         <ul>
           <li ng-repeat="friend in vm.person.friends"> {{ friend }}</li>
         </ul>

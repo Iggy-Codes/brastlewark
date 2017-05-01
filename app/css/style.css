@@ -70,7 +70,7 @@ body main .modal {
   position: fixed;
   width: 550px;
   top: 15%;
-  right: calc( (100% - 600px) / 2);
+  right: calc( (100% - 550px) / 2);
   color: white;
 }
 
@@ -112,4 +112,26 @@ body main .modal .modal-picture {
 body main .modal .modal-data {
   float: left;
   padding-left: 40px;
+}
+
+@media (max-width: 650px) {
+  body main .people .picture {
+    width: 250px;
+    height: 250px;
+  }
+  body main .modal {
+    width: 300px;
+    top: 75px;
+    right: calc( (100% - 300px) / 2);
+  }
+  body main .modal-picture {
+    float: none;
+  }
+  body main .modal-data {
+    float: none;
+  }
+  body main .modal-data ul {
+    margin: 0 auto;
+    align-item: center;
+  }
 }
